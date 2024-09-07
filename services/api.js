@@ -15,22 +15,40 @@ async function fetchTokenWebport(ip, user, password) {
 
         if (response.ok) {
             const data = await response.json();
-            console.log('Token fetched.');
-            console.log('data:');
-            console.log(data);
-            console.log('datatoken:');
-            console.log(data.Token);
             return data.Token;
         } else {
             throw new Error('Error during fetching token');
         }
     } catch (error) {
-        console.log('Something went wrong: ' + error.message);
         throw error;
     }
 }
 
 
+async function fetchData(tags, interval, ip, token) {
+    try {
+        const tagParams = tags.map(tag => `tag=${encodeURIComponent(tag)}`).join('&');
+        const url = `http://${ip}/api/v1/tag/read?${tagParams}`;
+
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'accept': 'application/json',
+                'token': token
+            }
+        });
+
+        const data = await response.json();
+        return data; 
+
+    } catch (error) {
+        throw new Error('Något gick fel: ' + error.message);
+        
+    }
+}
+
+
 module.exports = {
-    fetchTokenWebport
+    fetchTokenWebport,
+    fetchData
 };
