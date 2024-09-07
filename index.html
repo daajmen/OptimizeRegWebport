@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Electron App</title>
+  </head>
+  <body>
+        <!-- Header med inställningar -->
+        <div class="header">
+            <div class="settings">
+                <div class="form-group">
+                    <label for="ip">IP-adress</label>
+                    <input type="text" id="ip" placeholder="IP-adress" list="ip-list">
+                    <datalist id="ip-list">
+                        <!-- Dynamiska IP-adresser kommer att fyllas här -->
+                    </datalist>
+                </div>
+                <div class="form-group">
+                    <label for="user">Användarnamn</label>
+                    <input type="text" id="user" placeholder="Användarnamn">
+                </div>
+                <div class="form-group">
+                    <label for="password">Lösenord</label>
+                    <input type="password" id="password" placeholder="Lösenord">
+                </div>
+                <div>
+                    <button type="button" id="fetchTokenBtn">Hämta Token</button>
+                </div>
+
+            </div>
+            <div id="output">
+                <!-- Här kan du visa meddelanden till användaren -->
+            </div>            
+        </div>
+    <script src="./renderer.js"></script>
+  </body>
+</html>

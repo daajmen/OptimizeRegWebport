@@ -1,0 +1,13 @@
+{
+  "name": "optimizeregwebport",
+  "version": "1.0.0",
+  "description": "extract values from webport for optimization of regulator",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Alexander Lundqvist",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^32.0.2"  }
+}
